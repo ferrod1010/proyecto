@@ -1,0 +1,17 @@
+{% extends 'repuestosapp/base.html' %}
+    {% block content %}
+    <div class="tienda">
+
+        <h1>Producto Nuevo</h1>
+        <form enctype="multipart/form-data" method="POST" class="post-form">
+          {% csrf_token %}
+          {{ formulario.as_p }}
+          <form name="form" action="." method="post" enctype="multipart/form-data">
+            <link href="/media/admin/css/widgets.css" rel="stylesheet" type="text/css">
+            <link href="/media/css/forms.css" rel="stylesheet" type="text/css">
+            <link href="/media/css/estilo_general.css" rel="stylesheet"
+type="text/css">
+            <button type="submit" class="save btn btn-default">Crear</button>
+        </form>
+      </div>
+    {% endblock %}

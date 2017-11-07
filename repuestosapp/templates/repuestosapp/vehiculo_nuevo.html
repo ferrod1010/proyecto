@@ -1,0 +1,12 @@
+{% extends 'repuestosapp/base.html' %}
+    {% block content %}
+
+<div class="tienda">
+        <h1>Vehiculo Nuevo</h1>
+        <form enctype="multipart/form-data" method="POST" class="post-form">
+          {% csrf_token %}
+          {{ formulario.as_p }}
+            <button type="submit" class="save btn btn-default">Crear</button>
+        </form>
+      </div>
+    {% endblock %}

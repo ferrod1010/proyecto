@@ -1,0 +1,38 @@
+{% extends 'repuestosapp/base.html' %}
+
+{% block content %}
+<div class="tienda">
+
+<table>
+  <tr>
+    <th>Vehiculo</th>
+    <th>Repuesto</th>
+    <th>Cantidad</th>
+    <th></th>
+  </tr>
+  {% for bod in asignaciones %}
+  <tr>
+    <td>
+      <h4>{{ bod.vehiculo.marca }}</a></h4>
+    </td>
+    <td><div class="text-detail">
+        <h6>Repuesto:{{ bod.repuesto.nombre  }}</h6>
+        </div>
+    </td>
+    <td><div class="text-detail"
+      <h6>Cantidad: {{ bod.repuesto.cantidad }}</h6>
+        </div>
+    </td>
+    <td>
+      <a class="waves-effect waves-light btn" href="{% url 'repuestosapp.views.asignacion_detalle' pk=bod.pk %}"><i class="material-icons left">view_list</i>Ver</a>
+    </td>
+   {% endfor %}
+  </tr>
+
+</table>
+<a class="waves-effect waves-light btn" href="{% url 'repuestosapp.views.asignacion_nueva' %}"><i class="material-icons left">create</i>Agregar Asignacion Nueva</a>
+
+      </div>
+
+
+{% endblock content %}

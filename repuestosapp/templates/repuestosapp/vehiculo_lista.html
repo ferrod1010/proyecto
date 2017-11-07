@@ -1,0 +1,16 @@
+{% extends 'repuestosapp/base.html' %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<a class="waves-effect waves-light btn" href="{% url 'repuestosapp.views.vehiculo_nuevo' %}"><i class="material-icons left">create</i>Vehiculo Nuevo</a>
+{% endif %}
+  {% for ve in vehiculos %}
+      <div class="tienda">
+          <h1><a href="{% url 'repuestosapp.views.vehiculo_detalle' pk=ve.pk %}">{{ ve.marca }}</a></h1>
+          <div class="text-detail">
+             <p>Dueño:{{ ve.duenio  }}</p>
+             <p>Año: {{ ve.anio }}</p>
+          </div>
+      </div>
+  {% endfor %}
+{% endblock %}

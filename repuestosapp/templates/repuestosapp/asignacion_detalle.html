@@ -1,0 +1,17 @@
+{% extends 'repuestosapp/base.html' %}
+
+   {% block content %}
+       <div class="tienda">
+           {% if asignaciones.repuesto.nombre %}
+           <h4>{{ asignaciones.vehiculo.marca  }}</h4>
+           <h4>{{ asignaciones.vehiculo.duenio  }}</h4>
+           <h5>Repuesto: {{ asignaciones.repuesto.nombre }}</h5>
+           <h5>descripcion: {{ asignaciones.repuesto.descripcion }}</h5>
+           <h4>Cantidad: {{ asignaciones.repuesto.cantidad|linebreaksbr }}</h4>
+           {% endif %}
+           {% if user.is_authenticated %}
+           <a class="waves-effect waves-light btn" href="{% url 'asignacion_del' pk=asignaciones.pk %}"><i class="material-icons left">delete</i>Eliminar</a>
+           <a class="waves-effect waves-light btn" href="{% url 'asignacion_editar' pk=asignaciones.pk %}"><i class="material-icons left">edit</i>Editar</a>
+           {% endif %}
+       </div>
+   {% endblock %}

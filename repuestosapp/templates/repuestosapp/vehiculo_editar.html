@@ -1,0 +1,12 @@
+{% extends 'repuestosapp/base.html' %}
+
+{% block content %}
+<div class="tienda">
+
+    <h1>Editar Vehiculo</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ formulario.as_p }}
+        <button type="submit" class="save btn btn-default">Terminar</button>
+    </form>
+  </div>
+{% endblock %}

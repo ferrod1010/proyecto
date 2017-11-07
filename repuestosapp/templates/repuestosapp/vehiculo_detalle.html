@@ -1,0 +1,17 @@
+{% extends 'repuestosapp/base.html' %}
+
+   {% block content %}
+       <div class="Tienda">
+           {% if vehiculos.marca %}
+          <h2>{{ veniculos.marca }}</h2>
+           <h5>Dueño: {{ vehiculos.duenio }}</h5>
+           <h5>Año: {{ vehiculos.anio }}</h5>
+           {% endif %}
+
+           {% if user.is_authenticated %}
+           <a class="waves-effect waves-light btn" href="{% url 'vehiculo_del' pk=vehiculos.pk %}"><i class="material-icons left">delete</i>Eliminar</a>
+           <a class="waves-effect waves-light btn" href="{% url 'vehiculo_editar' pk=vehiculos.pk %}"><i class="material-icons left">edit</i>Editar</a>
+           {% endif %}
+
+          </div>
+   {% endblock %}

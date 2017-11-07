@@ -1,0 +1,53 @@
+{% load staticfiles %}
+<html lang="es">
+<html>
+       <head>
+         <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+         <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+         <script src="{% static 'css/js/skel.min.js'%}"></script>
+         <script src="{% static 'css/js/skel-panels.min.js'%}"></script>
+         <script src="{% static 'css/js/init.js'%}"></script>
+
+        {% include 'material/includes/material_css.html' %}
+        <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
+        {% include 'material/includes/material_js.html' %}
+        <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
+
+           <title>Tiendas</title>
+       </head>
+
+       <body background-color="#060325">
+         <div id="wrapper">
+
+           <!-- Header -->
+           <div id="header">
+             <div class="">
+
+               <nav class="barra">
+           <div class="nav-wrapper">
+             <a href="" class="brand-logo">Taller Django</a>
+             <ul id="nav-mobile" class="right hide-on-med-and-down">
+               <li><a href="{% url 'repuestosapp.views.vehiculo_lista' %}">Vehiculos</a></li>
+               <li><a href="{% url 'repuestosapp.views.asignacion_lista' %}">Asignacion</a></li>
+               <li><a href="{% url 'repuestosapp.views.repuesto_lista' %}">Repuestos</a></li>
+               {% if user.is_authenticated %}
+               <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+               {% else %}
+               <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+               {% endif %}
+             </ul>
+           </div>
+         </nav>
+           <!-- /Header -->
+           <div class="content container">
+             <div class="row">
+               <div class="col-md-8">
+                 {% block content %}
+                 {% endblock %}
+            </div>
+           </div>
+         </div>
+       </body>
+   </html>
